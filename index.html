@@ -18,22 +18,20 @@
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.6);
       z-index: -1;
     }
 
     header, section, footer {
       background: rgba(0, 0, 0, 0.7);
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: auto;
+      padding: 2rem;
       border-radius: 8px;
+      margin: 2rem auto;
+      max-width: 900px;
     }
 
     header {
       text-align: center;
-      padding-top: 6rem;
-      padding-bottom: 4rem;
     }
 
     header h1 {
@@ -48,3 +46,199 @@
     }
 
     .btn {
+      padding: 1rem 2rem;
+      background: gold;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .tier {
+      background: #1a1a1a;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-left: 5px solid gold;
+    }
+
+    form {
+      background: #111;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 4px;
+      background: #222;
+      color: #fff;
+    }
+
+    input[type="submit"] {
+      background: gold;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .wallets {
+      background: #191919;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+    .wallets code {
+      background: #333;
+      padding: 0.5rem;
+      display: block;
+      margin: 0.5rem 0;
+      color: gold;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      font-size: 1.2rem;
+      background: #111;
+      padding: 2rem;
+      border-radius: 8px;
+      color: gold;
+      margin-top: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>The Miami Soirée</h1>
+      <p>Elite Private Gay Celebration | Invitation-Only | Formal Black Tie</p>
+      <a href="#rsvp" class="btn">Request Invitation</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>The Experience</h2>
+    <p>
+      A one-night-only affair hosted at a confidential luxury venue in Miami. Designed for elite LGBTQ+ professionals, global tastemakers, and discreet influencers.
+    </p>
+    <ul>
+      <li>🎻 Live orchestral performance</li>
+      <li>🍾 Champagne & curated cocktails</li>
+      <li>💼 Global networking lounges</li>
+      <li>🖤 Sensual and expressive private spaces</li>
+      <li>👔 Mandatory black tie — strictly enforced</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Ticket Tiers</h2>
+    <div class="tier">
+      <h3>VIP Experience – $25,000</h3>
+      <p>Luxury package with champagne, private concierge, artist meet & greet. Address couriered in sealed envelope.</p>
+    </div>
+    <div class="tier">
+      <h3>Elite Admission – $15,400</h3>
+      <p>General access, table seating, cocktails, and secure email delivery of event address.</p>
+    </div>
+    <div class="tier">
+      <h3>Regular Access – $8,700</h3>
+      <p>Ballroom access, open bar, orchestra performance, and social lounges.</p>
+    </div>
+  </section>
+
+  <section class="wallets">
+    <h2>Payment Wallets</h2>
+    <p>Please send payment to one of the wallets below. After confirming payment, submit your RSVP request.</p>
+    <strong>BTC:</strong>
+    <code>bc1q94jpf48a7yukqvyf0lecyjnn7qkrv9lu3xfz8z</code>
+
+    <strong>USDT (ERC20):</strong>
+    <code>0x3ED7B4947C5FcA2172b417387794C27562f70bcE</code>
+
+    <strong>ETH (Ethereum):</strong>
+    <code>0x3ED7B4947C5FcA2172b417387794C27562f70bcE</code>
+
+    <strong>USDT (TRC20):</strong>
+    <code>TPdL4vwNPTxg2h8uVoELxKYbGguL2bzGhR</code>
+  </section>
+
+  <section id="rsvp">
+    <h2>RSVP & Request Invitation</h2>
+
+    <form id="rsvpForm">
+      <input type="text" name="fullName" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="text" name="occupation" placeholder="Your Profession / Company" />
+      <select name="ticketType" required>
+        <option value="">Select Ticket Tier</option>
+        <option value="vip">VIP Experience – $25,000</option>
+        <option value="elite">Elite Admission – $15,400</option>
+        <option value="regular">Regular Access – $8,700</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Tell us why you wish to attend (optional)"></textarea>
+      <input type="submit" value="Submit RSVP Request" />
+    </form>
+
+    <div class="thank-you" id="thankYou">
+      🎟️ <strong>Thank you!</strong><br><br>
+      Your ticket will be emailed to you once payment has been confirmed.<br>
+      If you don't receive it within 30 minutes, please reach out via the live chat in the corner.
+    </div>
+  </section>
+
+  <footer>
+    © 2025 The Miami Soirée. All rights reserved. Strictly confidential. Invitation-only.
+  </footer>
+
+  <!-- Tawk.to Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6872a7b3cbb343319286ff0d/1ivvtu5j8';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+  <!-- JavaScript to send to Formspree and show thank-you -->
+  <script>
+    const form = document.getElementById("rsvpForm");
+    const thankYou = document.getElementById("thankYou");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const response = await fetch("https://formspree.io/f/xrblzzrq", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        form.style.display = "none";
+        thankYou.style.display = "block";
+      } else {
+        alert("Something went wrong. Please try again or contact us via live chat.");
+      }
+    });
+  </script>
+
+</body>
+</html>
