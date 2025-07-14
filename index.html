@@ -9,17 +9,20 @@
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/f/f8/Miami_-_Skyline_from_Harbor.jpg') center/cover no-repeat fixed;
+      background: #000;
       color: #f5f5f5;
       line-height: 1.6;
+      position: relative;
+      z-index: 0;
     }
 
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: -1;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/f/f8/Miami_-_Skyline_from_Harbor.jpg') center/cover no-repeat;
+      background-attachment: scroll;
+      z-index: -2;
     }
 
     header, section, footer {
@@ -115,6 +118,13 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+
+    label {
+      margin-bottom: 0.5rem;
+      display: block;
+      color: #ccc;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -163,7 +173,7 @@
 
   <section class="wallets">
     <h2>Payment Wallets</h2>
-    <p>Please send payment to one of the wallets below. After confirming payment, submit your RSVP request.</p>
+    <p>Please send payment to either of the wallets below. After confirming payment, submit your RSVP request below.</p>
     <strong>BTC:</strong>
     <code>bc1q94jpf48a7yukqvyf0lecyjnn7qkrv9lu3xfz8z</code>
 
@@ -180,7 +190,7 @@
   <section id="rsvp">
     <h2>RSVP & Request Invitation</h2>
 
-    <form id="rsvpForm">
+    <form id="rsvpForm" enctype="multipart/form-data">
       <input type="text" name="fullName" placeholder="Full Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
       <input type="text" name="occupation" placeholder="Your Profession / Company" />
@@ -188,10 +198,14 @@
         <option value="">Select Ticket Tier</option>
         <option value="vip">VIP Experience – $25,000</option>
         <option value="elite">Elite Admission – $15,400</option>
-        <option value="elite">Premium Acess – $8,600</option>
+        <option value="premium">Premium Access – $8,600</option>
         <option value="regular">Regular Access – $4,700</option>
       </select>
       <textarea name="message" rows="4" placeholder="Tell us why you wish to attend (optional)"></textarea>
+
+      <label for="paymentProof">Upload Screenshot of Payment</label>
+      <input type="file" name="paymentProof" id="paymentProof" accept="image/*" />
+
       <input type="submit" value="Submit RSVP Request" />
     </form>
 
@@ -241,6 +255,17 @@
         thankYou.style.display = "block";
       } else {
         alert("Something went wrong. Please try again or contact us via live chat.");
+      }
+    });
+
+    // Show filename after image is selected
+    const fileInput = document.getElementById("paymentProof");
+    fileInput.addEventListener("change", function () {
+      if (fileInput.files.length > 0) {
+        const preview = document.createElement("p");
+        preview.style.color = "gold";
+        preview.textContent = `✅ ${fileInput.files[0].name} selected.`;
+        fileInput.parentNode.insertBefore(preview, fileInput.nextSibling);
       }
     });
   </script>
